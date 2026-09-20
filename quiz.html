@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Match Quiz — PathFinder</title>
+<meta name="description" content="Answer 12 quick questions about your interests, skills, and personality to get matched with college courses that fit you.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 4.9-9 4.9-9-4.9L12 2z"/><path d="M3 12l9 4.9 9-4.9M3 17l9 4.9 9-4.9"/></svg>
+      </span>
+      PathFinder
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" data-page="index.html">Home</a>
+      <a href="quiz.html" data-page="quiz.html">Take the Quiz</a>
+      <a href="courses.html" data-page="courses.html">Explore Courses</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="courses.html" class="btn btn-outline">Browse Courses</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="section" style="padding-top:48px">
+  <div class="container">
+
+    <!-- Intro -->
+    <div id="quiz-intro" class="quiz-shell quiz-intro">
+      <div class="icon-hero">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+      </div>
+      <span class="eyebrow">Course Match Quiz</span>
+      <h1 style="font-size:clamp(1.6rem,3.4vw,2.3rem)">Let's find a course that fits you</h1>
+      <p class="lede">Rate 12 short statements about how you think, work, and what you enjoy. There are no right or wrong answers — just be honest about what feels most like you.</p>
+      <div class="quiz-facts">
+        <div class="quiz-fact"><b>12</b><span>Quick questions</span></div>
+        <div class="quiz-fact"><b>~5 min</b><span>To complete</span></div>
+        <div class="quiz-fact"><b>20+</b><span>Courses matched</span></div>
+      </div>
+      <button class="btn btn-accent btn-lg" id="start-quiz-btn">Start the Quiz</button>
+      <p class="muted" style="margin-top:16px;font-size:13px">Your answers stay in your browser — nothing is sent anywhere.</p>
+    </div>
+
+    <!-- Questions -->
+    <div id="quiz-questions" class="quiz-shell" style="display:none">
+      <div class="quiz-progress-track"><div class="quiz-progress-fill" id="progress-fill"></div></div>
+      <div class="quiz-meta">
+        <span id="question-count">Question 1 of 12</span>
+        <span id="question-trait-label"></span>
+      </div>
+      <div class="quiz-question" id="question-text"></div>
+      <div class="likert" id="likert-options"></div>
+      <div class="quiz-nav">
+        <button class="btn btn-ghost" id="back-btn">← Back</button>
+        <div class="quiz-dots" id="quiz-dots"></div>
+        <div style="width:70px"></div>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div id="quiz-results" style="display:none">
+      <div class="quiz-shell results-header">
+        <span class="eyebrow green">Your Results</span>
+        <h2>Here's what fits you best</h2>
+        <p class="muted">Based on your answers, here's your interest &amp; personality profile, followed by your top course matches.</p>
+        <div class="trait-bars" id="trait-bars"></div>
+      </div>
+
+      <div style="max-width:720px;margin:32px auto 0">
+        <h3 class="text-center" style="margin-bottom:20px">Your Top Course Matches</h3>
+        <div id="match-list"></div>
+      </div>
+
+      <div class="text-center" style="margin-top:32px">
+        <button class="btn btn-outline" id="retake-btn">Retake Quiz</button>
+        <a href="courses.html" class="btn btn-primary">Explore All Courses</a>
+      </div>
+    </div>
+
+    <!-- How matching works -->
+    <div id="how-matching-works" class="quiz-shell" style="max-width:720px;margin:32px auto 0;text-align:left;scroll-margin-top:24px">
+      <span class="eyebrow green">How Matching Works</span>
+      <h3 style="margin-top:10px">The short version</h3>
+      <p style="margin-bottom:0">Each question feeds into one of six interest &amp; personality types — Realistic, Investigative, Artistic, Social, Enterprising, and Conventional (RIASEC), a framework widely used in real career counseling. We build a profile from your answers, compare it to the same six-trait profile for every course in our catalog, and rank the closest matches — each with a plain-language reason, not just a label.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div>
+      <div class="footer-brand">
+        <span class="brand-mark">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 4.9-9 4.9-9-4.9L12 2z"/><path d="M3 12l9 4.9 9-4.9M3 17l9 4.9 9-4.9"/></svg>
+        </span>
+        PathFinder
+      </div>
+      <p style="color:var(--turq-200);font-size:14px;max-width:320px">Helping senior high school students find a college course that fits their interests, skills, and goals.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="index.html">Home</a>
+      <a href="quiz.html">Take the Quiz</a>
+      <a href="courses.html">Course Explorer</a>
+    </div>
+    <div>
+      <h4>About</h4>
+      <a href="quiz.html#how-matching-works">How matching works</a>
+      <a href="courses.html">All courses</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 PathFinder. Built to help students explore, not decide for them.</div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/quiz.js"></script>
+</body>
+</html>
